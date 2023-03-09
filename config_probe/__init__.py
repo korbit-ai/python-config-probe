@@ -67,7 +67,7 @@ def _add_to_configuration(config, namespaces, new_values):
 
 def _update(config, values):
     for k, v in values.items():
-        if k in config and isinstance(v, collections.Mapping):
+        if k in config and isinstance(v, collections.abc.Mapping):
             _update(config[k], v)
         else:
             config[k] = v
