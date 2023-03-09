@@ -1,6 +1,26 @@
 [![Build Status](https://travis-ci.org/internap/python-config-probe.svg?branch=master)](https://travis-ci.org/internap/python-config-probe)
 [![PyPI version](https://badge.fury.io/py/config-probe.svg)](http://badge.fury.io/py/config-probe)
 
+HENLO
+=====
+
+I've forked this because the original module is an amazingly old package that was built for python 3.4 ;_;
+
+There's a bug that manifests itself when you try to use the inheritance stuff (i.e. the way we have a common
+config, then environment specific configs).  Basically, it works UNLESS you have the same map in two configs.
+In my case, I wanted all environments to share the common config:
+
+    database:
+        api_version: "v2"
+        port: "8002"
+        ... etc
+        
+and then each environment had some specific values:
+
+    database:
+        host: http://localhost
+        
+The above example crashes the module.  This fork fixes the issue.
 
 Mission
 =======
